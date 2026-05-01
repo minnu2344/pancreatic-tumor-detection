@@ -61,13 +61,13 @@ def load_model():
 
 
 def preprocess(image_gray):
-    image_rgb = cv2.cvtColor(image_gray, cv2.COLOR_GRAY2RGB)
+    image_hw1 = np.expand_dims(image_gray, axis=-1)
     transform = A.Compose([
         A.Resize(IMAGE_SIZE, IMAGE_SIZE),
-        A.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)),
+        A.Normalize(mean=(0.5,), std=(0.5,)),
         ToTensorV2(),
     ])
-    return transform(image=image_rgb)["image"].unsqueeze(0).float()
+    return transform(image=image_hw1)["image"].unsqueeze(0).float()
 
 
 def run_inference(model, tensor, device):
