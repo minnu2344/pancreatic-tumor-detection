@@ -1,0 +1,14 @@
+streamlit
+torch
+torchvision
+numpy
+opencv-python-headless
+pillow
+albumentations
+python-dotenv
+matplotlib
+groq
+nibabel
+tqdm
+scikit-image
+scikit-learn
